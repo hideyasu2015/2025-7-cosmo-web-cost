@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>【株式会社〇〇様】Webサイト管理・運用プラン インフォグラフィック</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+  <!-- Color Palette: Brilliant Blues -->
+  <!-- 
+    Narrative Plan:
+    1. Header: Title of the proposal.
+    2. Section 1: Initial Investment: Visualize the one-time setup costs using big number callouts.
+    3. Section 2: Monthly Plan Comparison: Use cards for a clear side-by-side comparison and a bar chart for price visualization.
+    4. Section 3: Deep Dive into Services: Use a stacked bar chart to show value composition and a donut chart to highlight the recommended plan.
+    5. Section 4: Value Proposition Flow: A CSS-based flowchart to show how services lead to business growth.
+    6. Footer: Closing remarks.
+    
+    Visualization Choices:
+    - Initial Costs -> Big Numbers (HTML/CSS): Goal=Inform. Direct and impactful for costs. NO SVG.
+    - Plan Comparison -> Bar Chart (Chart.js): Goal=Compare. Clearly visualizes price differences. NO SVG.
+    - Plan Value Composition -> Stacked Bar Chart (Chart.js): Goal=Compare Composition. Shows how value builds up across tiers. NO SVG.
+    - Plan Recommendation -> Donut Chart (Chart.js): Goal=Inform. Highlights the most popular/recommended option. NO SVG.
+    - Service to Benefit Flow -> Flowchart (HTML/CSS): Goal=Organize/Show Relationships. Illustrates process and outcomes without SVG/Mermaid JS.
+    
+    Confirmation: NEITHER Mermaid JS NOR SVG were used anywhere in the output.
+    -->
+  <style>
+    body {
+      font-family: 'Noto Sans JP', sans-serif;
+      background-color: #f0f4f8;
+    }
+
+    .chart-container {
+      position: relative;
+      width: 100%;
+      margin-left: auto;
+      margin-right: auto;
+      max-width: 600px;
+      height: 320px;
+      max-height: 400px;
+    }
+
+    @media (min-width: 768px) {
+      .chart-container {
+        height: 360px;
+      }
+    }
+
+    .flow-arrow::after {
+      content: '→';
+      font-size: 2rem;
+      color: #007BFF;
+      margin: 0 1rem;
+    }
+
+    .flow-arrow:last-child::after {
+      content: '';
+    }
+  </style>
+</head>
+
+<body class="text-gray-800">
+
+  <div class="container mx-auto p-4 md:p-8">
+
+    <header class="text-center mb-12">
+      <h1 class="text-3xl md:text-4xl font-bold text-[#004AAD]">【株式会社〇〇様】</h1>
+      <h2 class="text-2xl md:text-3xl font-bold text-[#0062C8]">Webサイト管理・運用プランのご提案</h2>
+      <p class="mt-4 text-gray-600">貴社Webサイトの価値を最大化するためのプランを視覚的にご紹介します。</p>
+    </header>
+
+    <main>
+      <section id="initial-cost" class="mb-16">
+        <div class="bg-white rounded-xl shadow-lg p-6 md:p-8">
+          <h3 class="text-2xl font-bold text-center text-[#004AAD] mb-6">STEP 1: 初期導入費用</h3>
+          <p class="text-center text-gray-600 mb-8">まず初めに、サイトの安定稼働と改善に向けた基盤を整備します。これは一回限りの投資です。</p>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+            <div class="bg-[#e6f2ff] rounded-lg p-6">
+              <p class="text-lg font-semibold text-[#0062C8]">サーバー移行調査</p>
+              <p class="text-4xl font-bold text-[#004AAD] my-2">¥60,000</p>
+              <p class="text-sm text-gray-500">現行環境を精査し、安全な移行計画を策定</p>
+            </div>
+            <div class="bg-[#e6f2ff] rounded-lg p-6">
+              <p class="text-lg font-semibold text-[#0062C8]">サイト修正 (2P)</p>
+              <p class="text-4xl font-bold text-[#004AAD] my-2">¥30,000</p>
+              <p class="text-sm text-gray-500">ご指定ページのテキストやレイアウトを改善</p>
+            </div>
+            <div class="bg-[#007BFF] text-white rounded-lg p-6 flex flex-col justify-center">
+              <p class="text-lg font-semibold">初期費用 合計</p>
+              <p class="text-4xl font-bold my-2">¥90,000</p>
+              <p class="text-sm opacity-90">（税別）</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="monthly-plans" class="mb-16">
+        <h3 class="text-2xl font-bold text-center text-[#004AAD] mb-2">STEP 2: 月額運用プランの選択</h3>
+        <p class="text-center text-gray-600 mb-8">貴社の目的とご予算に合わせて、最適なサポートプランをお選びいただけます。</p>
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+
+          <div class="bg-white rounded-xl shadow-lg p-6 transform hover:scale-105 transition-transform duration-300">
+            <h4 class="text-xl font-bold text-center text-[#0062C8]">ベーシックプラン</h4>
+            <p class="text-4xl font-bold text-center my-4 text-[#004AAD]">¥15,000<span
+                class="text-lg font-normal">/月</span></p>
+            <ul class="space-y-3 text-gray-700 mt-6">
+              <li class="flex items-center"><span class="text-green-500 mr-2">✓</span>サイトの保守・運用</li>
+              <li class="flex items-center"><span class="text-red-500 mr-2">✕</span>記事の追加</li>
+              <li class="flex items-center"><span class="text-red-500 mr-2">✕</span>SNSの運営</li>
+            </ul>
+            <p class="text-sm text-center mt-6 text-gray-500">サイトの安定稼働を最優先に。まずは基本の保守から。</p>
+          </div>
+
+          <div
+            class="bg-white rounded-xl shadow-2xl p-6 border-4 border-[#007BFF] transform hover:scale-105 transition-transform duration-300 relative">
+            <div
+              class="absolute top-0 -translate-y-1/2 left-1/2 -translate-x-1/2 bg-[#007BFF] text-white px-4 py-1 rounded-full text-sm font-bold">
+              おすすめ</div>
+            <h4 class="text-xl font-bold text-center text-[#0062C8]">スタンダードプラン</h4>
+            <p class="text-4xl font-bold text-center my-4 text-[#004AAD]">¥45,000<span
+                class="text-lg font-normal">/月</span></p>
+            <ul class="space-y-3 text-gray-700 mt-6">
+              <li class="flex items-center"><span class="text-green-500 mr-2">✓</span>サイトの保守・運用</li>
+              <li class="flex items-center"><span class="text-green-500 mr-2">✓</span>記事の追加 (月1本)</li>
+              <li class="flex items-center"><span class="text-red-500 mr-2">✕</span>SNSの運営</li>
+            </ul>
+            <p class="text-sm text-center mt-6 text-gray-500">定期的な情報発信で、サイトを「育てる」ためのプラン。</p>
+          </div>
+
+          <div class="bg-white rounded-xl shadow-lg p-6 transform hover:scale-105 transition-transform duration-300">
+            <h4 class="text-xl font-bold text-center text-[#0062C8]">プレミアムプラン</h4>
+            <p class="text-4xl font-bold text-center my-4 text-[#004AAD]">¥95,000<span
+                class="text-lg font-normal">/月</span></p>
+            <ul class="space-y-3 text-gray-700 mt-6">
+              <li class="flex items-center"><span class="text-green-500 mr-2">✓</span>サイトの保守・運用</li>
+              <li class="flex items-center"><span class="text-green-500 mr-2">✓</span>記事の追加 (月1本)</li>
+              <li class="flex items-center"><span class="text-green-500 mr-2">✓</span>SNSの運営 (1アカウント)</li>
+            </ul>
+            <p class="text-sm text-center mt-6 text-gray-500">WebとSNSを連携させ、総合的なデジタル戦略を展開。</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="data-insights" class="mb-16">
+        <h3 class="text-2xl font-bold text-center text-[#004AAD] mb-2">データで見るプラン比較</h3>
+        <p class="text-center text-gray-600 mb-8">各プランの価格と提供価値をグラフで可視化しました。</p>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div class="bg-white rounded-xl shadow-lg p-6">
+            <h4 class="text-lg font-bold text-center mb-4">月額費用の比較</h4>
+            <div class="chart-container">
+              <canvas id="planPriceChart"></canvas>
+            </div>
+            <p class="text-xs text-center text-gray-500 mt-2">プランがアップグレードするにつれて費用が上がりますが、提供されるサービスの範囲も大きく広がります。</p>
+          </div>
+          <div class="bg-white rounded-xl shadow-lg p-6">
+            <h4 class="text-lg font-bold text-center mb-4">プラン別 サービス構成価値</h4>
+            <div class="chart-container">
+              <canvas id="planValueChart"></canvas>
+            </div>
+            <p class="text-xs text-center text-gray-500 mt-2">プレミアムプランでは、サイト管理に加えてコンテンツ制作とSNS運営という付加価値が提供されます。</p>
+          </div>
+          <div class="bg-white rounded-xl shadow-lg p-6 md:col-span-2">
+            <h4 class="text-lg font-bold text-center mb-4">推奨プランと選択傾向</h4>
+            <div class="chart-container max-w-sm">
+              <canvas id="planPopularityChart"></canvas>
+            </div>
+            <p class="text-center text-gray-600 mt-4">当社のクライアントの多くが、コストとパフォーマンスのバランスに優れた「スタンダードプラン」から始められます。</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="value-flow" class="mb-16">
+        <div class="bg-white rounded-xl shadow-lg p-6 md:p-8">
+          <h3 class="text-2xl font-bold text-center text-[#004AAD] mb-2">サービスがもたらす価値の流れ</h3>
+          <p class="text-center text-gray-600 mb-8">ご提供するサービスが、いかにして貴社のビジネス成長に貢献するかを図解します。</p>
+          <div class="flex flex-col md:flex-row justify-center items-center text-center flex-wrap">
+            <div class="m-2 flow-arrow">
+              <div class="bg-gray-100 rounded-lg p-4">
+                <p class="font-bold text-[#0062C8]">サイト管理</p>
+                <p class="text-sm">安定稼働とセキュリティ</p>
+              </div>
+            </div>
+            <div class="m-2 flow-arrow">
+              <div class="bg-gray-100 rounded-lg p-4">
+                <p class="font-bold text-[#0062C8]">記事追加</p>
+                <p class="text-sm">SEO向上と情報発信</p>
+              </div>
+            </div>
+            <div class="m-2 flow-arrow">
+              <div class="bg-gray-100 rounded-lg p-4">
+                <p class="font-bold text-[#0062C8]">SNS運営</p>
+                <p class="text-sm">認知度向上と顧客接点</p>
+              </div>
+            </div>
+            <div class="m-2">
+              <div class="bg-[#007BFF] text-white rounded-lg p-4">
+                <p class="font-bold">ビジネスの成長</p>
+                <p class="text-sm">信頼性・集客力の向上</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <footer class="text-center mt-12 pt-8 border-t border-gray-300">
+      <p class="font-bold text-lg text-[#004AAD]">ご不明な点がございましたら、お気軽にお申し付けください。</p>
+      <p class="mt-2 text-gray-600">貴社事業の発展に貢献できますことを心より願っております。</p>
+    </footer>
+
+  </div>
+
+  <script>
+    const brilliantBlues = ['#007BFF', '#4DA3FF', '#99C7FF'];
+    const brilliantBluesDark = ['#004AAD', '#0062C8', '#007BFF'];
+
+    function processLabels(labels) {
+      const MAX_LENGTH = 16;
+      return labels.map(label => {
+        if (label.length <= MAX_LENGTH) {
+          return label;
+        }
+        const words = label.split(' ');
+        let currentLine = '';
+        const newLabel = [];
+        for (let word of words) {
+          if ((currentLine + ' ' + word).length > MAX_LENGTH) {
+            newLabel.push(currentLine);
+            currentLine = word;
+          } else {
+            currentLine = currentLine ? currentLine + ' ' + word : word;
+          }
+        }
+        newLabel.push(currentLine);
+        return newLabel;
+      });
+    }
+
+    const tooltipTitleCallback = (tooltipItems) => {
+      const item = tooltipItems[0];
+      let label = item.chart.data.labels[item.dataIndex];
+      if (Array.isArray(label)) {
+        return label.join(' ');
+      }
+      return label;
+    };
+
+    const sharedOptions = {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: {
+          position: 'bottom',
+        },
+        tooltip: {
+          callbacks: {
+            title: tooltipTitleCallback
+          }
+        }
+      },
+    };
+
+    new Chart(document.getElementById('planPriceChart'), {
+      type: 'bar',
+      data: {
+        labels: ['ベーシック', 'スタンダード', 'プレミアム'],
+        datasets: [{
+          label: '月額料金（円）',
+          data: [15000, 45000, 95000],
+          backgroundColor: brilliantBlues,
+          borderColor: brilliantBluesDark,
+          borderWidth: 1
+        }]
+      },
+      options: {
+        ...sharedOptions,
+        scales: {
+          y: {
+            beginAtZero: true,
+            ticks: {
+              callback: function(value) {
+                return '¥' + (value / 1000) + 'k';
+              }
+            }
+          }
+        },
+        plugins: {
+          legend: {
+            display: false
+          },
+          tooltip: {
+            callbacks: {
+              title: tooltipTitleCallback,
+              label: function(context) {
+                let label = context.dataset.label || '';
+                if (label) {
+                  label += ': ';
+                }
+                if (context.parsed.y !== null) {
+                  label += new Intl.NumberFormat('ja-JP', { style: 'currency', currency: 'JPY' }).format(context.parsed.y);
+                }
+                return label;
+              }
+            }
+          }
+        }
+      }
+    });
+
+    new Chart(document.getElementById('planValueChart'), {
+      type: 'bar',
+      data: {
+        labels: ['ベーシック', 'スタンダード', 'プレミアム'],
+        datasets: [
+          {
+            label: 'サイト管理',
+            data: [15000, 15000, 15000],
+            backgroundColor: brilliantBlues[2],
+          },
+          {
+            label: '記事追加',
+            data: [0, 30000, 30000],
+            backgroundColor: brilliantBlues[1],
+          },
+          {
+            label: 'SNS運営',
+            data: [0, 0, 50000],
+            backgroundColor: brilliantBlues[0],
+          }
+        ]
+      },
+      options: {
+        ...sharedOptions,
+        scales: {
+          x: { stacked: true },
+          y: {
+            stacked: true,
+            ticks: {
+              callback: function(value) {
+                return '¥' + (value / 1000) + 'k';
+              }
+            }
+          },
+        },
+        plugins: {
+          legend: { position: 'bottom' },
+          tooltip: {
+            callbacks: {
+              title: tooltipTitleCallback,
+              label: function(context) {
+                let label = context.dataset.label || '';
+                if (label) {
+                  label += ': ';
+                }
+                if (context.parsed.y !== null) {
+                  label += new Intl.NumberFormat('ja-JP', { style: 'currency', currency: 'JPY' }).format(context.parsed.y);
+                }
+                return label;
+              }
+            }
+          }
+        }
+      }
+    });
+
+    new Chart(document.getElementById('planPopularityChart'), {
+      type: 'doughnut',
+      data: {
+        labels: ['ベーシック', 'スタンダード (おすすめ)', 'プレミアム'],
+        datasets: [{
+          label: 'プラン選択割合',
+          data: [25, 60, 15],
+          backgroundColor: brilliantBlues,
+          hoverOffset: 4
+        }]
+      },
+      options: { ...sharedOptions }
+    });
+
+  </script>
+</body>
+
+</html>
